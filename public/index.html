@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <script src="https://npmcdn.com/axios/dist/axios.js"></script>
+    <script src="https://unpkg.com/axios-mock-adapter/dist/axios-mock-adapter.min.js">  </script>
+  </head>
+  <body>
+    <h1>hello</h1>
+    <script>
+      var mock = new AxiosMockAdapter(axios)
+      mock.onGet("/api").reply(200, {
+        username: 'Hama',
+         gender: 'male'
+       })
+
+      axios.get("/api").then(function (response) {
+        console.log(response.data)
+      })
+
+    </script>
+
+  </body>
+</html>
